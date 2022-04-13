@@ -1,12 +1,19 @@
 {
-  "name": "devto-clone-server",
+  "name": "dev-to-mern-cloudinary",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://dev-to-mern-cloudinary.herokuapp.com",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku",
+    "oldtest": "echo \"Error: no test specified\" && exit 1",
+    "oldstart": "node server/app.js",
+    "dev": "nodemon server/app.js"
   },
   "author": "Eknoorpreet Singh",
   "license": "ISC",
@@ -34,5 +41,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "/client/node_modules"
+  ]
 }
